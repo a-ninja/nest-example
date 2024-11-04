@@ -1,7 +1,7 @@
 
 ## Description
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+Nest framework TypeScript starter repository with Prisma and hexagonal architecture.
 
 ## Project setup
 
