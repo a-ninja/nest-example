@@ -12,25 +12,24 @@ export class JDBCProductRepository extends PrismaClient implements OnModuleInit,
     await this.$connect();
   }
 
-  async createItem(data): Promise<ProductEntity> {
+  async createProduct(data): Promise<ProductEntity> {
     console.log("JDBCProductRepository: creating product", data);
     return await this.product.create({ data: data }).then((element) => {
       console.log("JDBCProductRepository: created product", element)
-      return new ProductEntity(element.id, element.name, element.description, element.createdAt)
+      return new ProductEntity(element.name, element.description, element.id, element.createdAt)
     });
   }
 
   async findAll(): Promise<Collection<ProductEntity>> {
     console.log("JDBCProductRepository: findAll")
-    // const itemList = Collection<ProductPortResponseDTO>()
     const products = await this.product.findMany().then((products) => {
       console.log("JDBCProductRepository: findMany", products)
       const productMap = products.map((element) => {
-        return new ProductEntity(element.id, element.name, element.description, element.createdAt)
+        return new ProductEntity(element.name, element.description, element.id, element.createdAt)
       })
       return productMap
     });
-    console.log("returning blah", products)
+    console.log("JDBCProductRepository.findAll returning Collection<ProductEntity>", products)
     return products
   }
 }

@@ -5,6 +5,6 @@ import { ProductEntity } from "../entity/product.entity";
 import { Collection } from "scl"
 
 export interface ProductRepository {
-  createItem(data): Promise<ProductEntity>
+  createProduct(data): Promise<ProductEntity>
   findAll(): Promise<Collection<ProductEntity>>
 }
