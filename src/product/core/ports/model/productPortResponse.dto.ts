@@ -3,7 +3,7 @@ import { ProductServiceResponseDTO } from "../../service/model/productServiceRes
 export class ProductPortResponseDTO {
   description: string;
   name: string;
-  manufacturerId?: string;
+  manufacturerId?: number;
   manufacturerName?: string;
   productId: string;
 
@@ -11,7 +11,7 @@ export class ProductPortResponseDTO {
     description: string,
     name: string,
     productId: string,
-    manufacturerId?: string,
+    manufacturerId?: number,
     manufacturerName?: string) {
 
     this.description = description

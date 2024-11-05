@@ -10,7 +10,7 @@ export class ProductControllerRequestDTO {
   readonly name: string;
 
   @ApiProperty({ name: 'Manufacturer id' })
-  readonly manufacturerId: string;
+  readonly manufacturerId: number;
 
   @ApiProperty({ name: 'Product identifer' })
   readonly productId: string;

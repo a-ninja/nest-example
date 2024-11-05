@@ -8,7 +8,7 @@ export class ProductEntity {
     description: string,
     name: string,
     productId: string,
-    manufacturerId?: string,
+    manufacturerId?: number,
     id?: number,
     createdAt?: Date) {
 
@@ -23,7 +23,7 @@ export class ProductEntity {
   createdAt: Date;
   description: string;
   id: number;
-  manufacturerId?: string;
+  manufacturerId?: number;
   name: string;
   productId: string;
 

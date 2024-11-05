@@ -9,7 +9,7 @@ export class ProductControllerResponseDTO {
   name: string;
 
   @ApiProperty({ name: 'Manufacturer id' })
-  readonly manufacturerId?: string;
+  readonly manufacturerId?: number;
 
   @ApiProperty({ name: 'Manufacturer name' })
   readonly manufacturerName?: string;
@@ -21,7 +21,7 @@ export class ProductControllerResponseDTO {
     description: string,
     name: string,
     productId: string,
-    manufacturerId?: string,
+    manufacturerId?: number,
     manufacturerName?: string) {
     this.description = description
     this.name = name

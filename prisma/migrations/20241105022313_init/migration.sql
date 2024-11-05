@@ -5,7 +5,7 @@ CREATE TABLE "product" (
     "name" TEXT NOT NULL,
     "productId" TEXT NOT NULL,
     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    "manufacturerId" TEXT NOT NULL,
+    "manufacturerId" INTEGER NOT NULL,
 
     CONSTRAINT "product_pkey" PRIMARY KEY ("id")
 );

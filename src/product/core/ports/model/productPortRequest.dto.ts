@@ -3,14 +3,14 @@ import { ProductServiceRequestDTO } from "../../service/model/productServiceRequ
 export class ProductPortRequestDTO {
   description: string;
   name: string;
-  manufacturerId?: string;
+  manufacturerId?: number;
   productId: string;
 
   public constructor(
     description: string, 
     name: string, 
     productId: string, 
-    manufacturerId?: string) {
+    manufacturerId?: number) {
     this.description = description
     this.name = name
     this.manufacturerId = manufacturerId
