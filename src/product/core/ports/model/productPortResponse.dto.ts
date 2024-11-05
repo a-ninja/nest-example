@@ -1,15 +1,32 @@
 import { ProductServiceResponseDTO } from "../../service/model/productServiceResponse.dto";
 
 export class ProductPortResponseDTO {
-  name: string;
   description: string;
+  name: string;
+  manufacturerId?: string;
+  manufacturerName?: string;
+  productId: string;
 
-  public constructor(name: string, description: string) {
-    this.name = name
+  public constructor(
+    description: string,
+    name: string,
+    productId: string,
+    manufacturerId?: string,
+    manufacturerName?: string) {
+
     this.description = description
+    this.name = name
+    this.productId = productId
+    this.manufacturerId = manufacturerId
+    this.manufacturerName = manufacturerName
   }
 
   public toProductServiceResponseDTO(): ProductServiceResponseDTO {
-    return new ProductServiceResponseDTO(this.name, this.description)
+    return new ProductServiceResponseDTO(
+      this.description,
+      this.name,
+      this.productId,
+      this.manufacturerId,
+      this.manufacturerName)
   }
 }

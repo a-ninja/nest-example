@@ -1,15 +1,27 @@
 import { ProductServiceRequestDTO } from "../../service/model/productServiceRequest.dto";
 
 export class ProductPortRequestDTO {
-  name: string;
   description: string;
+  name: string;
+  manufacturerId?: string;
+  productId: string;
 
-  public constructor(name: string, description: string) {
-    this.name = name
+  public constructor(
+    description: string, 
+    name: string, 
+    productId: string, 
+    manufacturerId?: string) {
     this.description = description
+    this.name = name
+    this.manufacturerId = manufacturerId
+    this.productId = productId
   }
 
-  public static fromProductServiceRequestDTO(productRequestDTO: ProductServiceRequestDTO): ProductPortRequestDTO {
-    return new ProductPortRequestDTO(productRequestDTO.name, productRequestDTO.description)
+  public static fromProductServiceRequestDTO(productServiceRequestDTO: ProductServiceRequestDTO): ProductPortRequestDTO {
+    return new ProductPortRequestDTO(
+      productServiceRequestDTO.description, 
+      productServiceRequestDTO.name, 
+      productServiceRequestDTO.productId, 
+      productServiceRequestDTO.manufacturerId)
   }
 }

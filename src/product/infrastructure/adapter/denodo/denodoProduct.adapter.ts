@@ -44,10 +44,18 @@ export class DenodoProductAdapter extends ProductPort {
      */
 
     // var data = new ProductCreateDTO(productPortDTO.name, productPortDTO.description)
-    var data = new ProductEntity(productPortDTO.name, productPortDTO.description)
+    var data = new ProductEntity(
+      productPortDTO.description,
+      productPortDTO.name,
+      productPortDTO.productId,
+      productPortDTO.manufacturerId)
     const createdProduct = await this.productRepository.createProduct(data)
-    console.log("DenodoProductAdapter.callCreateProduct entity", createdProduct)
-    return new ProductPortResponseDTO(createdProduct.name, createdProduct.description)
+    console.log("DenodoProductAdapter.callCreateProduct created entity", createdProduct)
+    return new ProductPortResponseDTO(
+      createdProduct.description,
+      createdProduct.name,
+      createdProduct.productId,
+      createdProduct.manufacturerId)
   }
 
   async getAllProducts(): Promise<Collection<ProductPortResponseDTO>> {
@@ -55,9 +63,13 @@ export class DenodoProductAdapter extends ProductPort {
 
     const products = await this.productRepository.findAll()
     console.log("DenodoProductAdapter product entities", products)
-    const products1 = products.map((product) => {
-      return new ProductPortResponseDTO(product.name, product.description)
+    const productDTOs = products.map((product) => {
+      return new ProductPortResponseDTO(
+        product.description,
+        product.name,
+        product.productId,
+        product.manufacturerId)
     })
-    return products1
+    return productDTOs
   }
 }

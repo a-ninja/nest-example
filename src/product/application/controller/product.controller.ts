@@ -33,8 +33,8 @@ export class ProductController {
     this.productRequestDTOValidator.validate(requestDTO)
 
     //transform ControllerRequest to ServiceRequest
-    console.log("calling requestDTO.toProductServiceRequestDTO");
-    console.log("calling requestDTO.toProductServiceRequestDTO" + typeof (requestDTO));
+    // console.log("calling requestDTO.toProductServiceRequestDTO");
+    console.log("calling requestDTO.toProductServiceRequestDTO, typeof(requestDTO)=", typeof (requestDTO), ", instanceof ProductControllerRequestDTO?=", requestDTO instanceof ProductControllerRequestDTO);
     const productServiceRequestDTO = requestDTO.toProductServiceRequestDTO()
 
     //call service

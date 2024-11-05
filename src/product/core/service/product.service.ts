@@ -1,5 +1,4 @@
 import { Injectable } from '@nestjs/common';
-import { ProductServiceImpl } from 'src/product/infrastructure/product.service.impl';
 import { ProductServiceRequestDTO } from './model/productServiceRequest.dto';
 import { ProductServiceResponseDTO } from './model/productServiceResponse.dto';
 import { Collection } from "scl"

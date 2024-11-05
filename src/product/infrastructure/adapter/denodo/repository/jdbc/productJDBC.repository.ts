@@ -16,7 +16,13 @@ export class JDBCProductRepository extends PrismaClient implements OnModuleInit,
     console.log("JDBCProductRepository: creating product", data);
     return await this.product.create({ data: data }).then((element) => {
       console.log("JDBCProductRepository: created product", element)
-      return new ProductEntity(element.name, element.description, element.id, element.createdAt)
+      return new ProductEntity(
+        element.description, 
+        element.name,
+        element.productId, 
+        element.manufacturerId, 
+        element.id, 
+        element.createdAt)
     });
   }
 
@@ -25,7 +31,13 @@ export class JDBCProductRepository extends PrismaClient implements OnModuleInit,
     const products = await this.product.findMany().then((products) => {
       console.log("JDBCProductRepository: findMany", products)
       const productMap = products.map((element) => {
-        return new ProductEntity(element.name, element.description, element.id, element.createdAt)
+        return new ProductEntity(
+          element.description,
+          element.name,
+          element.productId,
+          element.manufacturerId,
+          element.id,
+          element.createdAt)
       })
       return productMap
     });

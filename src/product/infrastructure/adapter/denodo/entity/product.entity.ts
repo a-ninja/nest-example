@@ -4,19 +4,35 @@ import { ProductPortRequestDTO } from "src/product/core/ports/model/productPortR
  * Entity corresponds to the schema defined in Prisma file
  */
 export class ProductEntity {
-  public constructor(name: string, description: string, id?: number, createdAt?: Date) {
-    this.id = id
-    this.name = name
-    this.description = description
+  public constructor(
+    description: string,
+    name: string,
+    productId: string,
+    manufacturerId?: string,
+    id?: number,
+    createdAt?: Date) {
+
     this.createdAt = createdAt
+    this.description = description
+    this.id = id
+    this.manufacturerId = manufacturerId
+    this.name = name
+    this.productId = productId
   }
-  id: number;
-  name: string;
-  description: string;
+
   createdAt: Date;
+  description: string;
+  id: number;
+  manufacturerId?: string;
+  name: string;
+  productId: string;
 
   public static fromProductPortRequestDTO(productPortRequestDTO: ProductPortRequestDTO): ProductEntity {
-    return new ProductEntity(productPortRequestDTO.name, productPortRequestDTO.description)
+    return new ProductEntity(
+      productPortRequestDTO.description,
+      productPortRequestDTO.name,
+      productPortRequestDTO.productId,
+      productPortRequestDTO.manufacturerId)
   }
 }
 

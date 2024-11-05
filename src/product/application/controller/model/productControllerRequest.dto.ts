@@ -9,8 +9,19 @@ export class ProductControllerRequestDTO {
   @ApiProperty({ name: 'Product name' })
   readonly name: string;
 
+  @ApiProperty({ name: 'Manufacturer id' })
+  readonly manufacturerId: string;
+
+  @ApiProperty({ name: 'Product identifer' })
+  readonly productId: string;
+
   public toProductServiceRequestDTO(): ProductServiceRequestDTO {
-    console.log("name = ", this.name, "description = ", this.description)
-    return new ProductServiceRequestDTO(this.name, this.description)
+    console.log(`name = ${this.name}, description = ${this.description}, manufacturerId = ${this.manufacturerId}`)
+    return new ProductServiceRequestDTO(
+      this.description,
+      this.name,
+      this.productId,
+      this.manufacturerId,
+    )
   }
 }

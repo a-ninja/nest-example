@@ -8,8 +8,18 @@ datasource db {
 }
 
 model product {
-  id            Int         @id @default(autoincrement())
-  name          String
-  description   String
-  createdAt     DateTime    @default(now())
+  id              Int         @id @default(autoincrement())
+  description     String
+  name            String
+  productId       String
+  createdAt       DateTime    @default(now())
+  //manufacturer    manufacturer @relation(fields: [manufacturerId], references: [id])
+  manufacturerId  String // relation scalar field  (used in the `@relation` attribute a
 }
+
+//model manufacturer {
+//  id              Int         @id @default(autoincrement())
+//  name            String
+//  description     String
+//  createdAt       DateTime    @default(now())
+//}

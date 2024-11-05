@@ -23,10 +23,10 @@ export class ProductServiceImpl extends ProductService {
       console.log("productPortResponseDTO",productPortResponseDTO)
 
       //transform PortResponse to ServiceResponse
-      const productResponseDTO = productPortResponseDTO.toProductServiceResponseDTO()
-      console.log("productResponseDTO",productResponseDTO)
+      const productServiceResponseDTO = productPortResponseDTO.toProductServiceResponseDTO()
+      console.log("productServiceResponseDTO",productServiceResponseDTO)
 
-      return productResponseDTO
+      return productServiceResponseDTO
    }
 
    async getProducts(): Promise<Collection<ProductServiceResponseDTO>> {

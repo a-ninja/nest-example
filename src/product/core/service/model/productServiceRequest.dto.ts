@@ -1,9 +1,17 @@
 export class ProductServiceRequestDTO {
-  readonly name: string;
   readonly description: string;
+  readonly name: string;
+  readonly manufacturerId?: string;
+  readonly productId: string;
 
-  public constructor(name: string, description: string) {
-    this.name = name
+  public constructor(
+    description: string,
+    name: string,
+    productId: string,
+    manufacturerId?: string) {
     this.description = description
+    this.name = name
+    this.productId = productId
+    this.manufacturerId = manufacturerId
   }
 }
